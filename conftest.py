@@ -108,19 +108,33 @@ def page(request, browser):
 def android_driver(request):
     """Appium driver for Android. Skipped if appium-python-client not installed."""
     try:
-        from appium import webdriver as appium_webdriver
+        from appium import webdriver
+        from appium.options.android import UiAutomator2Options
+
     except ImportError:
         pytest.skip("appium-python-client not installed")
 
-    caps = {
-        "platformName":   CFG.android_caps["platform_name"],
-        "automationName": CFG.android_caps["automation_name"],
-        "deviceName":     CFG.android_caps["device_name"],
-        "appPackage":     CFG.android_caps["app_package"],
-        "appActivity":    CFG.android_caps["app_activity"],
-        "noReset":        CFG.android_caps["no_reset"],
-    }
-    driver = appium_webdriver.Remote(CFG.appium_server, caps)
+    options = UiAutomator2Options()
+
+    options.platform_name = CFG.android_caps["platform_name"]
+    options.automation_name= CFG.android_caps['automation_name']
+    options.device_name = CFG.android_caps["device_name"]
+    options.udid = CFG.android_caps["device_name"]
+    options.app_package = CFG.android_caps["app_package"]
+    options.app_activity = CFG.android_caps["app_activity"]
+    options.no_reset = True
+
+
+    # caps = {
+    #     "platformName":   ,
+    #     "automationName": CFG.android_caps["automation_name"],
+    #     "deviceName":     CFG.android_caps["device_name"],
+    #     "appPackage":     CFG.android_caps["app_package"],
+    #     "appActivity":    CFG.android_caps["app_activity"],
+    #     "noReset":        CFG.android_caps["no_reset"],
+    # }
+    # print(f"----{CFG.appium_server}----{caps}")
+    driver = webdriver.Remote(CFG.appium_server, options=options)
     if request.cls:
         request.cls.driver = driver
     yield driver

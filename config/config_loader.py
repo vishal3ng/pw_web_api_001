@@ -62,8 +62,8 @@ class Config:
         self.video        = b["video"]
 
         # Mobile
-        # self.appium_server = raw["mobile"]["appium_server"]
-        # self.android_caps  = raw["mobile"]["android"]
+        self.appium_server = raw["mobile"]["appium_server"]
+        self.android_caps  = raw["mobile"]["android"]
         # self.ios_caps      = _deep(raw["mobile"]["ios"])
 
         # API

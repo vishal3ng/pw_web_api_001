@@ -1,7 +1,0 @@
-[32mINFO    [0m util.user_manager:user_manager.py:119 [UserPool] All users reset to free state.
-[32mINFO    [0m test_home_page_loads:test_home_ui.py:23 Opening home page: https://www.selenium.dev/
-[32mINFO    [0m pages.common_method:common_method.py:23 Navigating to: https://www.selenium.dev/
-[32mINFO    [0m pages.common_method:common_method.py:31 Click: //span[text()='Downloads']
-[32mINFO    [0m test_home_page_loads:test_home_ui.py:38 Page title: Downloads | Selenium
-[32mINFO    [0m test_home_page_loads:test_home_ui.py:43 Page title: Downloads | Selenium
-[32mINFO    [0m test_home_page_loads:test_home_ui.py:46 test_home_page_loads PASSED

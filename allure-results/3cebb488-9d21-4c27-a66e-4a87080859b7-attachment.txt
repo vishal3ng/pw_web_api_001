@@ -1,4 +1,0 @@
-[32mINFO    [0m test_home_page_screenshot:test_home_ui.py:53 Capturing home page screenshot
-[32mINFO    [0m pages.common_method:common_method.py:23 Navigating to: https://www.selenium.dev/
-[32mINFO    [0m pages.common_method:common_method.py:67 Screenshot taken: Home Page
-[32mINFO    [0m test_home_page_screenshot:test_home_ui.py:57 test_home_page_screenshot PASSED

@@ -48,6 +48,7 @@ class TestObjectsAPI:
     @pytest.mark.regression
     def test_create_object(self, api_user, logger):
         logger.info("POST /objects — create new object")
+        print("cvcvcvc",api_user)
         svc     = ObjectsService(token=api_user.get("api_token"))
         payload = {
             "name": "Corporate QA Test Object",
@@ -66,6 +67,7 @@ class TestObjectsAPI:
     @pytest.mark.api
     @pytest.mark.regression
     def test_update_object(self, api_user, logger):
+        print("cvcvcvc", api_user)
         logger.info("PUT /objects/7 — update object")
         svc      = ObjectsService(token=api_user.get("api_token"))
         response = svc.update_object(
@@ -84,6 +86,7 @@ class TestObjectsAPI:
     @pytest.mark.regression
     def test_patch_object(self, api_user, logger):
         logger.info("PATCH /objects/7")
+        print("cvcvcvc", api_user)
         svc      = ObjectsService(token=api_user.get("api_token"))
         response = svc.patch_object("7", {"name": "Patched Object Name"})
         svc.assert_status(response, 200)
@@ -96,6 +99,7 @@ class TestObjectsAPI:
     @pytest.mark.regression
     def test_delete_object(self, api_user, logger):
         logger.info("DELETE /objects — creating then deleting")
+        print("cvcvcvc", api_user)
         svc = ObjectsService(token=api_user.get("api_token"))
         # First create so we can delete
         create_resp = svc.create_object("Temp Object", {"temp": True})
@@ -113,6 +117,7 @@ class TestObjectsAPI:
     @pytest.mark.performance
     def test_api_response_time(self, api_user, logger):
         logger.info("Checking API response time")
+        print("cvcvcvc", api_user)
         svc      = ObjectsService(token=api_user.get("api_token"))
         response = svc.get_all_objects()
         svc.assert_status(response, 200)
@@ -126,6 +131,7 @@ class TestObjectsAPI:
     @pytest.mark.regression
     def test_get_nonexistent_object(self, api_user, logger):
         logger.info("GET /objects/999999 — expect 404 or error")
+        print("cvcvcvc", api_user)
         svc      = ObjectsService(token=api_user.get("api_token"))
         response = svc.get_object("999999")
         logger.info(f"Response: {response.status_code} {response.text}")

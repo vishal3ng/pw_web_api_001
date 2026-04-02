@@ -44,17 +44,17 @@ browser:
 # Mobile — Appium (iOS & Android)
 # ----------------------------------------------------------------
 mobile:
-  appium_server: "http://127.0.0.1:4723"
+  appium_server: "http://localhost:4723"
 
-#  android:
-#    platform_name:    "Android"
-#    automation_name:  "UiAutomator2"
-#    device_name:      "emulator-5554"
-#    app_package:      "com.myntra.android"
-#    app_activity:     ".MainActivity"
-#    app_path:         "drivers/app-debug.apk"
-#    timeout:          30000
-#    no_reset:         false
+  android:
+    platform_name:    "Android"
+    automation_name:  "UiAutomator2"
+    device_name:      "RZCXB2B2N4F"
+    app_package:      "com.android.settings"
+    app_activity:     ".Settings"
+    app_path:         "drivers/app-debug.apk"
+    timeout:          30000
+    no_reset:         false
 #
 #  ios:
 #    platform_name:    "iOS"
