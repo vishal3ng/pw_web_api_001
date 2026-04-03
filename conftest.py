@@ -31,8 +31,9 @@ _failed_tests: list[dict] = []
 @pytest.fixture(scope="session", autouse=True)
 def session_setup():
     """Clean logs + reset user pool at session start."""
-    if not CFG.retain_logs and os.path.exists(CFG.log_dir):
-        shutil.rmtree(CFG.log_dir)
+    # if not CFG.retain_logs and os.path.exists(CFG.log_dir):
+    #     # shutil.rmtree(CFG.log_dir)
+    #     pass
     os.makedirs(CFG.log_dir, exist_ok=True)
     os.makedirs(CFG.allure_results_dir, exist_ok=True)
     reset_all_users()   # unlock any users left from a crashed run
