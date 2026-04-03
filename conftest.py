@@ -24,6 +24,7 @@ from util.email_util     import send_failure_email, send_summary_email
 from util.user_manager   import acquire_user, release_user, reset_all_users
 
 _failed_tests: list[dict] = []
+status =True
 
 # ============================================================
 # SESSION SETUP
