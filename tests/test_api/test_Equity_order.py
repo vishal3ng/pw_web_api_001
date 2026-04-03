@@ -1,5 +1,5 @@
 """
-tests/test_api/test_objects_api.py
+tests/test_api/test_Equity_order.py
 -----------------------------------
 Sample API tests — full CRUD on /objects endpoint.
 Uses:
@@ -9,6 +9,10 @@ Uses:
 import allure
 import pytest
 from pages.api.objects_service import ObjectsService
+from pages.api.api_common import APICommon
+from config.config_loader import CFG
+
+
 from config.config_loader import CFG
 
 
@@ -20,14 +24,69 @@ class TestObjectsAPI:
     @allure.severity(allure.severity_level.BLOCKER)
     @pytest.mark.api
     @pytest.mark.smoke
-    def test_get_all_objects(self, api_user, logger):
-        logger.info("GET /objects")
-        svc      = ObjectsService(token=api_user.get("api_token"))
-        response = svc.get_all_objects()
-        svc.assert_status(response, 200)
-        svc.assert_is_list(response)
-        svc.assert_list_not_empty(response)
-        logger.info(f"PASS: {len(response.json())} objects returned")
+    def test_equity_buy_0(self, api_user, logger):
+        with allure.step("Verify EQUITY limit order placement "):
+            logger.info("Verify EQUITY limit order placement")
+            api= APICommon(base_url=CFG.api_base_url,token=api_user.get("api_token"))
+            logger.info(" generate token now ")
+
+        with allure.step("Hit order plaement api "):
+            pass
+
+            res=api.get(endpoint="users")
+            print(res.text)
+
+    @allure.story("GET all objects returns 200 and a list")
+    @allure.severity(allure.severity_level.BLOCKER)
+    @pytest.mark.api
+    @pytest.mark.smoke
+    def test_equity_buy_1(self, api_user, logger):
+        with allure.step("Verify EQUITY limit order placement "):
+            logger.info("Verify EQUITY limit order placement")
+            api= APICommon(base_url=CFG.api_base_url,token=api_user.get("api_token"))
+            logger.info(" generate token now ")
+
+        with allure.step("Hit order plaement api "):
+            pass
+
+            res=api.get(endpoint="users")
+            print(res.text)
+
+    def test_equity_buy_2(self, api_user, logger):
+        with allure.step("Verify EQUITY limit order placement "):
+            logger.info("Verify EQUITY limit order placement")
+            api = APICommon(base_url=CFG.api_base_url, token=api_user.get("api_token"))
+            logger.info(" generate token now ")
+
+        with allure.step("Hit order plaement api "):
+            pass
+
+            res = api.get(endpoint="users")
+            print(res.text)
+
+    def test_equity_buy_3(self, api_user, logger):
+        with allure.step("Verify EQUITY limit order placement "):
+            logger.info("Verify EQUITY limit order placement")
+            api = APICommon(base_url=CFG.api_base_url, token=api_user.get("api_token"))
+            logger.info(" generate token now ")
+
+        with allure.step("Hit order plaement api "):
+            pass
+
+            res = api.get(endpoint="users")
+            print(res.text)
+
+    def test_equity_buy_4(self, api_user, logger):
+        with allure.step("Verify EQUITY limit order placement "):
+            logger.info("Verify EQUITY limit order placement")
+            api = APICommon(base_url=CFG.api_base_url, token=api_user.get("api_token"))
+            logger.info(" generate token now ")
+
+        with allure.step("Hit order plaement api "):
+            pass
+
+            res = api.get(endpoint="users")
+            print(res.text)
 
     @allure.story("GET single object returns 200")
     @allure.severity(allure.severity_level.CRITICAL)

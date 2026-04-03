@@ -12,13 +12,13 @@ environment: "staging"    # local | staging | production
 urls:
   staging:
     base_url:     "https://www.selenium.dev/"
-    api_base_url: "https://restful-api.dev"
+    api_base_url: "https://fake-json-api.mock.beeceptor.com"
   production:
     base_url:     "https://www.myntra.com/"
     api_base_url: "https://api.myntra.com"
   local:
     base_url:     "http://localhost:3000/"
-    api_base_url: "http://localhost:8080"
+    api_base_url: "https://fake-json-api.mock.beeceptor.com"
 
 # ----------------------------------------------------------------
 # User Pool

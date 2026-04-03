@@ -38,6 +38,16 @@ def session_setup():
     reset_all_users()   # unlock any users left from a crashed run
     yield
 
+
+def pytest_runtest_setup(item):
+    worker_id = getattr(item.config, "workerinput", {}).get("workerid", "single")
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with allure.step(f"🕒 [{worker_id}] START {item.name} at {now}"):
+        pass
+
+
+
+
 # ============================================================
 # WORKER ID (pytest-xdist safe)
 # ============================================================
@@ -170,8 +180,10 @@ def ios_driver(request):
 def _user_fixture(role: str):
     @pytest.fixture(scope="function")
     def _fixture(worker_id):
+        print("collect user for ",role)
         user = acquire_user(role, worker_id=worker_id)
         yield user
+        print("release user for ", role)
         release_user(user)
     return _fixture
 

@@ -93,6 +93,7 @@ class APICommon:
         timeout = kwargs.pop("timeout", CFG.api_timeout)
         retries = CFG.api_max_retries
         attempt = 0
+        print("a-a-a-a",url)
 
         while attempt <= retries:
             try:
