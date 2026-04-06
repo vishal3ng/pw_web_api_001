@@ -6,6 +6,8 @@ Uses:
   - api_user  : role-based user from pool (has api_token)
   - logger    : per-test logger
 """
+import datetime
+
 import allure
 import pytest
 from pages.api.objects_service import ObjectsService
@@ -25,12 +27,14 @@ class TestObjectsAPI:
     @pytest.mark.api
     @pytest.mark.smoke
     def test_equity_buy_0(self, api_user, logger):
-        with allure.step("Verify EQUITY limit order placement "):
+        print("user detail ",api_user)
+
+        with allure.step(f"Verify EQUITY limit order placement  with user {api_user}"):
             logger.info("Verify EQUITY limit order placement")
             api= APICommon(base_url=CFG.api_base_url,token=api_user.get("api_token"))
             logger.info(" generate token now ")
 
-        with allure.step("Hit order plaement api "):
+        with allure.step(f"user detail , {api_user}, {datetime.datetime.now()}"):
             pass
 
             res=api.get(endpoint="users")
@@ -41,48 +45,52 @@ class TestObjectsAPI:
     @pytest.mark.api
     @pytest.mark.smoke
     def test_equity_buy_1(self, api_user, logger):
+        print("user detail ", api_user)
         with allure.step("Verify EQUITY limit order placement "):
             logger.info("Verify EQUITY limit order placement")
             api= APICommon(base_url=CFG.api_base_url,token=api_user.get("api_token"))
             logger.info(" generate token now ")
 
-        with allure.step("Hit order plaement api "):
+        with allure.step(f"user detail , {api_user}, {datetime.datetime.now()}"):
             pass
 
             res=api.get(endpoint="users")
             print(res.text)
 
     def test_equity_buy_2(self, api_user, logger):
+        print("user detail ", api_user)
         with allure.step("Verify EQUITY limit order placement "):
             logger.info("Verify EQUITY limit order placement")
             api = APICommon(base_url=CFG.api_base_url, token=api_user.get("api_token"))
             logger.info(" generate token now ")
 
-        with allure.step("Hit order plaement api "):
+        with allure.step(f"user detail , {api_user}, {datetime.datetime.now()}"):
             pass
 
             res = api.get(endpoint="users")
             print(res.text)
 
     def test_equity_buy_3(self, api_user, logger):
+        print("user detail ", api_user)
         with allure.step("Verify EQUITY limit order placement "):
             logger.info("Verify EQUITY limit order placement")
             api = APICommon(base_url=CFG.api_base_url, token=api_user.get("api_token"))
             logger.info(" generate token now ")
 
-        with allure.step("Hit order plaement api "):
+        with allure.step(f"user detail , {api_user}, {datetime.datetime.now()}"):
             pass
 
             res = api.get(endpoint="users")
             print(res.text)
 
     def test_equity_buy_4(self, api_user, logger):
+        print("user detail ", api_user, datetime.datetime.now())
         with allure.step("Verify EQUITY limit order placement "):
             logger.info("Verify EQUITY limit order placement")
             api = APICommon(base_url=CFG.api_base_url, token=api_user.get("api_token"))
             logger.info(" generate token now ")
 
-        with allure.step("Hit order plaement api "):
+        with allure.step(f"user detail , {api_user}, {datetime.datetime.now()}"):
             pass
 
             res = api.get(endpoint="users")
